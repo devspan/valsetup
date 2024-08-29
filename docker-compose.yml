@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  rupaya-node:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - chaindata:/root/.ethereum
+      - ./genesis.json:/root/genesis.json
+    ports:
+      - "${HTTP_PORT:-8545}:8545"
+      - "${WS_PORT:-8546}:8546"
+      - "${P2P_PORT:-30303}:30303"
+    environment:
+      - NETWORK_ID
+      - SYNCMODE
+      - GCMODE
+      - HTTP_API
+      - WS_API
+      - BOOTNODES
+      - MINER_ETHERBASE
+      - VERBOSITY
+      - IMPORT_PRIVATE_KEY
+    secrets:
+      - node_password
+      - node_private_key
+    entrypoint: /entrypoint.sh
+
+volumes:
+  chaindata:
+
+secrets:
+  node_password:
+    file: ./password.txt
+  node_private_key:
+    file: ./private_key.txt
