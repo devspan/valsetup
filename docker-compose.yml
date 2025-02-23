@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   rupaya-node:
     build: 
@@ -10,8 +8,8 @@ services:
       - ./genesis.json:/root/genesis.json
       - ./config.toml:/root/.ethereum/config.toml
     ports:
-      - "${HTTP_PORT:-${HTTP_PORT}}:${HTTP_PORT}"
-      - "${WS_PORT:-${WS_PORT}}:${WS_PORT}"
+      - "${HTTP_PORT}"
+      - "${WS_PORT}"
       - "${P2P_PORT:-30303}:30303"
     environment:
       - NETWORK_ID

@@ -62,8 +62,8 @@ fi
 log "Using account: 0x$ACCOUNT"
 
 # Generate random ports for HTTP and WebSocket
-HTTP_PORT=$(( ( RANDOM % 1000 )  + 10000 ))  # Random port between 10000 and 10999
-WS_PORT=$(( ( RANDOM % 1000 )  + 11000 ))    # Random port between 11000 and 11999
+export HTTP_PORT=$(( ( RANDOM % 1000 )  + 10000 ))  # Random port between 10000 and 10999
+export WS_PORT=$(( ( RANDOM % 1000 )  + 11000 ))    # Random port between 11000 and 11999
 
 log "Using HTTP port: $HTTP_PORT"
 log "Using WebSocket port: $WS_PORT"
