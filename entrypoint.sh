@@ -63,7 +63,8 @@ log "Using account: 0x$ACCOUNT"
 
 # Construct the geth command
 log "Constructing geth command..."
-CMD="geth --networkid ${NETWORK_ID} \
+CMD="geth --config /root/.ethereum/config.toml \
+  --networkid ${NETWORK_ID} \
   --syncmode ${SYNCMODE} \
   --gcmode ${GCMODE} \
   --http \
