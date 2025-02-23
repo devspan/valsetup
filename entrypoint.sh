@@ -61,10 +61,10 @@ fi
 
 log "Using account: 0x$ACCOUNT"
 
-# Use custom ports for HTTP, WebSocket, and P2P
-export HTTP_PORT=7000  # Custom HTTP port
-export WS_PORT=7001    # Custom WebSocket port
-export P2P_PORT=7002   # Custom P2P port
+# Use standard Geth ports
+export HTTP_PORT=8545    # Standard HTTP port
+export WS_PORT=8546     # Standard WebSocket port
+export P2P_PORT=30303   # Standard P2P port
 
 log "Using HTTP port: $HTTP_PORT"
 log "Using WebSocket port: $WS_PORT"

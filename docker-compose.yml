@@ -8,9 +8,9 @@ services:
       - ./genesis.json:/root/genesis.json
       - ./config.toml:/root/.ethereum/config.toml
     ports:
-      - "7000:7000"
-      - "7001:7001"
-      - "7002:7002"
+      - "8545:8545"    # Standard HTTP port
+      - "8546:8546"    # Standard WebSocket port
+      - "30303:30303"  # Standard P2P port
     environment:
       - NETWORK_ID
       - SYNCMODE
