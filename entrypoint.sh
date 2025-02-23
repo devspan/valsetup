@@ -67,13 +67,13 @@ CMD="geth --networkid ${NETWORK_ID} \
   --syncmode ${SYNCMODE} \
   --gcmode ${GCMODE} \
   --http \
-  --http.addr 0.0.0.0 \
+  --http.addr 127.0.0.1 \
   --http.port 8545 \
   --http.api ${HTTP_API} \
   --http.corsdomain '*' \
   --http.vhosts=* \
   --ws \
-  --ws.addr 0.0.0.0 \
+  --ws.addr 127.0.0.1 \
   --ws.port 8546 \
   --ws.api ${WS_API} \
   --bootnodes ${BOOTNODES} \
