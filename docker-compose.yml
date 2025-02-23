@@ -8,9 +8,9 @@ services:
       - ./genesis.json:/root/genesis.json
       - ./config.toml:/root/.ethereum/config.toml
     ports:
-      - "8545:8545"    # Standard HTTP port
-      - "8546:8546"    # Standard WebSocket port
-      - "30303:30303"  # Standard P2P port
+      - "127.0.0.1:8545:8545"    # Only accessible from VPS localhost
+      - "127.0.0.1:8546:8546"    # Only accessible from VPS localhost
+      - "30303:30303"            # P2P remains publicly accessible
     environment:
       - NETWORK_ID
       - SYNCMODE

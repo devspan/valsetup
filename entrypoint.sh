@@ -77,13 +77,13 @@ CMD="geth --config /root/.ethereum/config.toml \
   --syncmode ${SYNCMODE} \
   --gcmode ${GCMODE} \
   --http \
-  --http.addr 127.0.0.1 \
+  --http.addr 0.0.0.0 \
   --http.port ${HTTP_PORT} \
   --http.api ${HTTP_API} \
   --http.corsdomain '*' \
   --http.vhosts=* \
   --ws \
-  --ws.addr 127.0.0.1 \
+  --ws.addr 0.0.0.0 \
   --ws.port ${WS_PORT} \
   --ws.api ${WS_API} \
   --port ${P2P_PORT} \
