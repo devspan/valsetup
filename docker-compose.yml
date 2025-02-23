@@ -10,7 +10,7 @@ services:
     ports:
       - "${HTTP_PORT}"
       - "${WS_PORT}"
-      - "${P2P_PORT:-30303}:30303"
+      - "${P2P_PORT}"
     environment:
       - NETWORK_ID
       - SYNCMODE

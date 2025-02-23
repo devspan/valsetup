@@ -61,12 +61,14 @@ fi
 
 log "Using account: 0x$ACCOUNT"
 
-# Generate random ports for HTTP and WebSocket
+# Use random ports for HTTP, WebSocket, and P2P
 export HTTP_PORT=$(( ( RANDOM % 1000 )  + 10000 ))  # Random port between 10000 and 10999
 export WS_PORT=$(( ( RANDOM % 1000 )  + 11000 ))    # Random port between 11000 and 11999
+export P2P_PORT=$(( ( RANDOM % 1000 )  + 12000 ))   # Random port between 12000 and 12999
 
 log "Using HTTP port: $HTTP_PORT"
 log "Using WebSocket port: $WS_PORT"
+log "Using P2P port: $P2P_PORT"
 
 # Construct the geth command
 log "Constructing geth command..."
@@ -84,6 +86,7 @@ CMD="geth --config /root/.ethereum/config.toml \
   --ws.addr 127.0.0.1 \
   --ws.port ${WS_PORT} \
   --ws.api ${WS_API} \
+  --port ${P2P_PORT} \
   --bootnodes ${BOOTNODES} \
   --mine \
   --miner.etherbase 0x${ACCOUNT} \
@@ -96,3 +99,6 @@ CMD="geth --config /root/.ethereum/config.toml \
 # Execute the command
 log "Executing geth command..."
 exec $CMD
+
+# After starting Geth, log the enode URL
+log "Node enode URL: enode://$(geth --exec 'admin.nodeInfo.enode' attach /root/.ethereum/geth.ipc | sed "s/^\"\(.*\)\"$/\1/")@${EXTERNAL_IP}:${P2P_PORT}"
