@@ -8,6 +8,7 @@ services:
     volumes:
       - chaindata:/root/.ethereum
       - ./genesis.json:/root/genesis.json
+      - ./config.toml:/root/.ethereum/config.toml
       - ./static-nodes.json:/root/.ethereum/static-nodes.json
     ports:
       - "${HTTP_PORT:-8545}:8545"
